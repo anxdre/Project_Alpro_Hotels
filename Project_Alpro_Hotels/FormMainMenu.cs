@@ -13,6 +13,7 @@ namespace Project_Alpro_Hotels
     public partial class FormMainMenu : Form
     {
         public List<string> historySaleOfData = new List<string>();
+        public List<int> historyPriceSaleOfData = new List<int>();
         public String highestData = "0";
         public String lowestData = "0";
         public String averageData = "0";
@@ -20,13 +21,6 @@ namespace Project_Alpro_Hotels
         public FormMainMenu()
         {
             InitializeComponent();
-        }
-
-        private void addDataToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FormAddData formAddData = new FormAddData();
-            formAddData.Owner = this;
-            formAddData.Show();
         }
 
         private void FormMainMenu_Load(object sender, EventArgs e)
@@ -43,7 +37,40 @@ namespace Project_Alpro_Hotels
         public void ShowData()
         {
             listBoxHistoryData.Items.Add(historySaleOfData.Last());
+            textBoxHighData.Text = $"{historyPriceSaleOfData.Max()}";
+            textBoxLowestData.Text = $"{historyPriceSaleOfData.Min()}";
+            textBoxAverageData.Text = $"{(int)historyPriceSaleOfData.Average()}";
         }
 
+        private void newDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddData formAddData = new FormAddData();
+            formAddData.Owner = this;
+            formAddData.Show();
+        }
+
+        private void clearAllDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            historyPriceSaleOfData.Clear();
+            historySaleOfData.Clear();
+            listBoxHistoryData.Items.Clear();
+            textBoxHighData.Text = "0";
+            textBoxLowestData.Text = "0";
+            textBoxAverageData.Text = "0";
+           
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Project Alpro Hotels " +
+                "\n Created with love by" +
+                "\n Andre Setiawan A (160420131)" +
+                "\n Marcella Diva V (160420124)");
+        }
     }
 }

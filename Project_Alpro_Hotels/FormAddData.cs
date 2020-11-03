@@ -14,6 +14,7 @@ namespace Project_Alpro_Hotels
     {
         String finalTransaction = null;
         String tempTransaction = null;
+        int finalPrice = 0;
         public FormAddData()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace Project_Alpro_Hotels
 
         private void buttonCheckData_Click(object sender, EventArgs e)
         {
+            listBoxDetailAddData.Items.Clear();
             int[] arrayOfRoomsPrice = new int[3] { 300000, 500000, 1000000 };
             double totalPrice = arrayOfRoomsPrice[comboBoxRoomType.SelectedIndex] * int.Parse(textBoxLengthStay.Text);
 
@@ -50,6 +52,7 @@ namespace Project_Alpro_Hotels
             }
             listBoxDetailAddData.Items.Add($"Total price must be paid: Rp. {totalPrice}");
             finalTransaction = $"Mr./Mrs.: {textBoxName.Text}.........................Rp.{totalPrice}";
+            finalPrice = (int)totalPrice;
 
         }
 
@@ -70,19 +73,32 @@ namespace Project_Alpro_Hotels
             tempTransaction = null;
         }
 
+        private void cleanField()
+        {
+            textBoxName.Clear();
+            textBoxLengthStay.Clear();
+            comboBoxRoomType.SelectedIndex = 0;
+            radioButtonMemberTrue.Checked = false;
+            radioButtonMemberFalse.Checked = false;
+            finalTransaction = null;
+            tempTransaction = null;
+        }
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             FormMainMenu formMainMenu = (FormMainMenu)this.Owner;
             if (finalTransaction != tempTransaction)
             {
                 formMainMenu.historySaleOfData.Add(finalTransaction);
+                formMainMenu.historyPriceSaleOfData.Add(finalPrice);
                 formMainMenu.ShowData();
                 MessageBox.Show("Data successfully added");
             }
             else
             {
-                MessageBox.Show("Data was added before");
+                MessageBox.Show("Please fill the required field");
             }
+            cleanField();
             tempTransaction = finalTransaction;
         }
     }
