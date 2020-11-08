@@ -12,8 +12,8 @@ namespace Project_Alpro_Hotels
 {
     public partial class FormMainMenu : Form
     {
-        public List<string> historySaleOfData = new List<string>();
-        public List<int> historyPriceSaleOfData = new List<int>();
+        public List<string> listOfHistorySaleData = new List<string>();
+        public List<int> listOfHistoryPriceSaleData = new List<int>();
         public String highestData = "0";
         public String lowestData = "0";
         public String averageData = "0";
@@ -29,6 +29,11 @@ namespace Project_Alpro_Hotels
             textBoxHighData.Enabled = false;
             textBoxLowestData.Enabled = false;
 
+            textBoxAverageData.BackColor = Color.White;
+            textBoxHighData.BackColor = Color.White;
+            textBoxLowestData.BackColor = Color.White;
+          
+
             textBoxAverageData.Text = averageData;
             textBoxHighData.Text = highestData;
             textBoxLowestData.Text = lowestData;
@@ -36,10 +41,10 @@ namespace Project_Alpro_Hotels
 
         public void ShowData()
         {
-            listBoxHistoryData.Items.Add(historySaleOfData.Last());
-            textBoxHighData.Text = $"{historyPriceSaleOfData.Max()}";
-            textBoxLowestData.Text = $"{historyPriceSaleOfData.Min()}";
-            textBoxAverageData.Text = $"{(int)historyPriceSaleOfData.Average()}";
+            listBoxHistoryData.Items.Add(listOfHistorySaleData.Last());
+            textBoxHighData.Text = $"{listOfHistoryPriceSaleData.Max()}";
+            textBoxLowestData.Text = $"{listOfHistoryPriceSaleData.Min()}";
+            textBoxAverageData.Text = $"{(int)listOfHistoryPriceSaleData.Average()}";
         }
 
         private void newDataToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,8 +56,8 @@ namespace Project_Alpro_Hotels
 
         private void clearAllDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            historyPriceSaleOfData.Clear();
-            historySaleOfData.Clear();
+            listOfHistoryPriceSaleData.Clear();
+            listOfHistorySaleData.Clear();
             listBoxHistoryData.Items.Clear();
             textBoxHighData.Text = "0";
             textBoxLowestData.Text = "0";
@@ -63,6 +68,7 @@ namespace Project_Alpro_Hotels
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+            Console.WriteLine();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,6 +77,13 @@ namespace Project_Alpro_Hotels
                 "\n Created with love by" +
                 "\n Andre Setiawan A (160420131)" +
                 "\n Marcella Diva V (160420124)");
+        }
+
+        private void showAllDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormShowAllData formShowAllData = new FormShowAllData();
+            formShowAllData.Owner = this;
+            formShowAllData.Show();
         }
     }
 }

@@ -46,6 +46,7 @@
             this.textBoxAverageData = new System.Windows.Forms.TextBox();
             this.textBoxLowestData = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.showAllDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newDataToolStripMenuItem,
+            this.showAllDataToolStripMenuItem,
             this.clearAllDataToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
@@ -112,7 +114,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -206,6 +208,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "History Transaction Data";
             // 
+            // showAllDataToolStripMenuItem
+            // 
+            this.showAllDataToolStripMenuItem.Name = "showAllDataToolStripMenuItem";
+            this.showAllDataToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.showAllDataToolStripMenuItem.Text = "Show All Data";
+            this.showAllDataToolStripMenuItem.Click += new System.EventHandler(this.showAllDataToolStripMenuItem_Click);
+            // 
             // FormMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -252,6 +261,7 @@
         private System.Windows.Forms.ToolStripMenuItem clearAllDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showAllDataToolStripMenuItem;
     }
 }
 

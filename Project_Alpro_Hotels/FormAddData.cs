@@ -13,7 +13,6 @@ namespace Project_Alpro_Hotels
     public partial class FormAddData : Form
     {
         String finalTransaction = null;
-        String tempTransaction = null;
         int finalPrice = 0;
         public FormAddData()
         {
@@ -29,9 +28,8 @@ namespace Project_Alpro_Hotels
             comboBoxRoomType.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void buttonCheckData_Click(object sender, EventArgs e)
+        private void buttonAddData_Click(object sender, EventArgs e)
         {
-            listBoxDetailAddData.Items.Clear();
             int[] arrayOfRoomsPrice = new int[3] { 300000, 500000, 1000000 };
             double totalPrice = arrayOfRoomsPrice[comboBoxRoomType.SelectedIndex] * int.Parse(textBoxLengthStay.Text);
 
@@ -51,8 +49,16 @@ namespace Project_Alpro_Hotels
                 listBoxDetailAddData.Items.Add($"Discount : Rp.0");
             }
             listBoxDetailAddData.Items.Add($"Total price must be paid: Rp. {totalPrice}");
+            listBoxDetailAddData.Items.Add("");
             finalTransaction = $"Mr./Mrs.: {textBoxName.Text}.........................Rp.{totalPrice}";
             finalPrice = (int)totalPrice;
+
+            FormMainMenu formMainMenu = (FormMainMenu)this.Owner;
+            formMainMenu.listOfHistorySaleData.Add(finalTransaction);
+            formMainMenu.listOfHistoryPriceSaleData.Add(finalPrice);
+            formMainMenu.ShowData();
+            cleanField();
+            MessageBox.Show("Data successfully added");
 
         }
 
@@ -63,14 +69,8 @@ namespace Project_Alpro_Hotels
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            textBoxName.Clear();
-            textBoxLengthStay.Clear();
-            comboBoxRoomType.SelectedIndex = 0;
+            cleanField();
             listBoxDetailAddData.Items.Clear();
-            radioButtonMemberTrue.Checked = false;
-            radioButtonMemberFalse.Checked = false;
-            finalTransaction = null;
-            tempTransaction = null;
         }
 
         private void cleanField()
@@ -81,25 +81,12 @@ namespace Project_Alpro_Hotels
             radioButtonMemberTrue.Checked = false;
             radioButtonMemberFalse.Checked = false;
             finalTransaction = null;
-            tempTransaction = null;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            FormMainMenu formMainMenu = (FormMainMenu)this.Owner;
-            if (finalTransaction != tempTransaction)
-            {
-                formMainMenu.historySaleOfData.Add(finalTransaction);
-                formMainMenu.historyPriceSaleOfData.Add(finalPrice);
-                formMainMenu.ShowData();
-                MessageBox.Show("Data successfully added");
-            }
-            else
-            {
-                MessageBox.Show("Please fill the required field");
-            }
-            cleanField();
-            tempTransaction = finalTransaction;
+           
+  
         }
     }
 }

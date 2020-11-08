@@ -37,9 +37,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButtonMemberFalse = new System.Windows.Forms.RadioButton();
             this.radioButtonMemberTrue = new System.Windows.Forms.RadioButton();
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.listBoxDetailAddData = new System.Windows.Forms.ListBox();
-            this.buttonCheckData = new System.Windows.Forms.Button();
+            this.buttonAddData = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -139,16 +138,6 @@
             this.radioButtonMemberTrue.Text = "Yes";
             this.radioButtonMemberTrue.UseVisualStyleBackColor = true;
             // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(409, 631);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(87, 35);
-            this.buttonAdd.TabIndex = 4;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
             // listBoxDetailAddData
             // 
             this.listBoxDetailAddData.FormattingEnabled = true;
@@ -158,19 +147,19 @@
             this.listBoxDetailAddData.Size = new System.Drawing.Size(431, 164);
             this.listBoxDetailAddData.TabIndex = 5;
             // 
-            // buttonCheckData
+            // buttonAddData
             // 
-            this.buttonCheckData.Location = new System.Drawing.Point(403, 378);
-            this.buttonCheckData.Name = "buttonCheckData";
-            this.buttonCheckData.Size = new System.Drawing.Size(93, 33);
-            this.buttonCheckData.TabIndex = 4;
-            this.buttonCheckData.Text = "Check";
-            this.buttonCheckData.UseVisualStyleBackColor = true;
-            this.buttonCheckData.Click += new System.EventHandler(this.buttonCheckData_Click);
+            this.buttonAddData.Location = new System.Drawing.Point(403, 378);
+            this.buttonAddData.Name = "buttonAddData";
+            this.buttonAddData.Size = new System.Drawing.Size(93, 33);
+            this.buttonAddData.TabIndex = 4;
+            this.buttonAddData.Text = "Add";
+            this.buttonAddData.UseVisualStyleBackColor = true;
+            this.buttonAddData.Click += new System.EventHandler(this.buttonAddData_Click);
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(240, 631);
+            this.buttonClear.Location = new System.Drawing.Point(409, 631);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(87, 35);
             this.buttonClear.TabIndex = 4;
@@ -195,10 +184,9 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(573, 703);
             this.Controls.Add(this.listBoxDetailAddData);
-            this.Controls.Add(this.buttonCheckData);
+            this.Controls.Add(this.buttonAddData);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonClear);
-            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBoxRoomType);
             this.Controls.Add(this.textBoxLengthStay);
@@ -227,9 +215,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButtonMemberFalse;
         private System.Windows.Forms.RadioButton radioButtonMemberTrue;
-        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.ListBox listBoxDetailAddData;
-        private System.Windows.Forms.Button buttonCheckData;
+        private System.Windows.Forms.Button buttonAddData;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonExit;
     }
